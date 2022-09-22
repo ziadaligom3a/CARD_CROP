@@ -38,7 +38,8 @@ Route::post('CARD',function(){
             $file = $rawBase64;
         }catch(\Exception $e){
 
-            echo $e->getMessage();
+            $file = $image->getContent();
+
         }
         }
 
