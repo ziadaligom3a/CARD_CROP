@@ -32,9 +32,14 @@ Route::post('CARD',function(){
         // dd($height);
         if($height >= 1000 || $width >= 1000){
 
+        try{
             $removebg = new RemoveBg('cnigyBEevq3dXQ686jMdgBXj');
             $rawBase64 = $removebg->base64(base64_encode($file))->get();
             $file = $rawBase64;
+        }catch(\Exception $e){
+
+            echo $e->getMessage();
+        }
         }
 
         $result = $coreapi->scan($image);
